@@ -9,6 +9,17 @@ def create_project_hash
   # image link: project.css("div.project-thumbnail a img").attribute("src").value
   binding.pry
 
+  projects_list = kickstarter.css("li.project.grid_4")
+  projects_list.each do |project|
+    Hash.new = {
+    :title => project.css("h2.bbcard_name strong a").text
+    :image_link => project.css("div.project-thumbnail a img").attribute("src").value,
+    :description => item.css("p.bbcard_blurb").text,
+    :location => item.css('.location-name').text,
+    :percent_funded => item.css('.first').text
+    }
+    :projects << project
+
 end
 
 create_project_hash
