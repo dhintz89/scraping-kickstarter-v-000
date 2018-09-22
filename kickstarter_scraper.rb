@@ -15,7 +15,7 @@ def create_project_hash
     :title => project.css("h2.bbcard_name strong a").text
     :image_link => project.css("div.project-thumbnail a img").attribute("src").value,
     :description => item.css("p.bbcard_blurb").text,
-    :location => item.css("span.location-name").text,
+    :location => item.css("ul.project-meta span.location-name").text,
     :percent_funded => item.css('.first').text
     }
     :projects << project
